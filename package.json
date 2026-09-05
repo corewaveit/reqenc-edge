@@ -1,6 +1,6 @@
 {
   "name": "reqenc-shield",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Enterprise 15-layer end-to-end request encryption SDK for zero-trust microservices and edge proxies.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
