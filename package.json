@@ -1,6 +1,6 @@
 {
   "name": "reqenc-shield",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enterprise 15-layer end-to-end request encryption SDK for zero-trust microservices and edge proxies.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -44,12 +44,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/corewaveit/reqenc.git"
+    "url": "git+https://github.com/corewaveit/reqenc-shield.git"
   },
   "bugs": {
-    "url": "https://github.com/corewaveit/reqenc/issues"
+    "url": "https://github.com/corewaveit/reqenc-shield/issues"
   },
-  "homepage": "https://reqenc.cwit.site",
+  "homepage": "https://github.com/corewaveit/reqenc-shield#readme",
   "engines": {
     "node": ">=16.0.0"
   },
