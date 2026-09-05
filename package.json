@@ -17,8 +17,12 @@
       }
     }
   },
+  "bin": {
+    "reqenc": "./bin/cli.cjs"
+  },
   "files": [
     "dist",
+    "bin",
     "README.md",
     "LICENSE"
   ],
@@ -55,5 +59,8 @@
   },
   "devDependencies": {
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "reqenc-edge": "^1.0.0"
   }
 }
