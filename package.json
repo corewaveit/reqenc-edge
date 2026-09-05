@@ -1,0 +1,59 @@
+{
+  "name": "reqenc-shield",
+  "version": "1.0.0",
+  "description": "Enterprise 15-layer end-to-end request encryption SDK for zero-trust microservices and edge proxies.",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "reqenc",
+    "security",
+    "encryption",
+    "rsa-oaep",
+    "aes-gcm",
+    "hmac",
+    "zero-trust",
+    "reverse-proxy",
+    "edge-security",
+    "cloudflare-workers",
+    "microservices",
+    "mitm-prevention"
+  ],
+  "author": "CoreWave IT (https://reqenc.cwit.site)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/corewaveit/reqenc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/corewaveit/reqenc/issues"
+  },
+  "homepage": "https://reqenc.cwit.site",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
