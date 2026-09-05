@@ -1,12 +1,12 @@
-# reqenc-shield 🛡️
+# reqenc-edge 🛡️
 
 > **Enterprise 15-Layer End-to-End Request Encryption Client for Zero-Trust Microservices & Edge Proxies.**
 
-[![npm version](https://img.shields.io/npm/v/reqenc-shield.svg?color=3b82f6)](https://www.npmjs.com/package/reqenc-shield)
+[![npm version](https://img.shields.io/npm/v/reqenc-edge.svg?color=3b82f6)](https://www.npmjs.com/package/reqenc-edge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen)](https://nodejs.org)
 
-`reqenc-shield` is the official client SDK for [REQENC](https://reqenc.cwit.site). It transforms standard HTTP requests into 15-layer quantum-hardened encrypted envelopes sealed with **2048-bit RSA-OAEP** and **AES-256-GCM** before sending them over the wire.
+`reqenc-edge` is the official client SDK for [REQENC](https://reqenc.cwit.site). It transforms standard HTTP requests into 15-layer quantum-hardened encrypted envelopes sealed with **2048-bit RSA-OAEP** and **AES-256-GCM** before sending them over the wire.
 
 Even if an attacker intercepts network packets via Wi-Fi sniffing, rogue proxies, or Burp Suite MITM, they will only see opaque ciphertext. The URL path, query params, HTTP method, and JSON body are completely invisible until decrypted inside your Cloudflare Anycast edge boundary.
 
@@ -15,13 +15,13 @@ Even if an attacker intercepts network packets via Wi-Fi sniffing, rogue proxies
 ## ⚡ Quick Installation
 
 ```bash
-npm install reqenc-shield
+npm install reqenc-edge
 # or
-pnpm add reqenc-shield
+pnpm add reqenc-edge
 # or
-yarn add reqenc-shield
+yarn add reqenc-edge
 # or
-bun add reqenc-shield
+bun add reqenc-edge
 ```
 
 ---
@@ -43,10 +43,10 @@ REQENC_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AM
 
 ### 2. Make Encrypted Requests
 
-`reqenc-shield` automatically picks up your environment variables:
+`reqenc-edge` automatically picks up your environment variables:
 
 ```typescript
-import { reqenc } from 'reqenc-shield';
+import { reqenc } from 'reqenc-edge';
 
 async function sendPayment() {
   // Drop-in replacement for standard fetch
@@ -74,7 +74,7 @@ async function sendPayment() {
 If you prefer passing credentials in code rather than environment variables:
 
 ```typescript
-import { reqenc } from 'reqenc-shield';
+import { reqenc } from 'reqenc-edge';
 
 reqenc.init({
   apiKey: 'rqe_live_your_key',
@@ -89,7 +89,7 @@ const orders = await res.json();
 Or instantiate isolated clients for multi-tenant environments:
 
 ```typescript
-import { Reqenc } from 'reqenc-shield';
+import { Reqenc } from 'reqenc-edge';
 
 const clientA = new Reqenc({ apiKey: 'key_tenant_a', publicKey: 'pem_a' });
 const clientB = new Reqenc({ apiKey: 'key_tenant_b', publicKey: 'pem_b' });
@@ -107,7 +107,7 @@ await clientA.fetch('/api/tenant-resource');
 // app/actions/billing.ts
 'use server';
 
-import { reqenc } from 'reqenc-shield';
+import { reqenc } from 'reqenc-edge';
 
 export async function processInvoice(invoiceId: string) {
   const res = await reqenc.fetch(`/api/billing/invoices/${invoiceId}/pay`, {
@@ -124,7 +124,7 @@ export async function processInvoice(invoiceId: string) {
 
 ```typescript
 import express from 'express';
-import { reqenc } from 'reqenc-shield';
+import { reqenc } from 'reqenc-edge';
 
 const app = express();
 app.use(express.json());

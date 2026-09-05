@@ -22,7 +22,7 @@ try {
 
 console.log('[REQENC] Bundling ESM & CJS with esbuild...');
 
-// 1. ESM Bundle (for import { reqenc } from 'reqenc-shield')
+// 1. ESM Bundle (for import { reqenc } from 'reqenc-edge')
 esbuild.buildSync({
   entryPoints: [path.join(rootDir, 'src/index.ts')],
   outfile: path.join(distDir, 'index.mjs'),
@@ -33,7 +33,7 @@ esbuild.buildSync({
   sourcemap: true,
 });
 
-// 2. CJS Bundle (for const { reqenc } = require('reqenc-shield'))
+// 2. CJS Bundle (for const { reqenc } = require('reqenc-edge'))
 esbuild.buildSync({
   entryPoints: [path.join(rootDir, 'src/index.ts')],
   outfile: path.join(distDir, 'index.cjs'),
@@ -44,7 +44,7 @@ esbuild.buildSync({
   sourcemap: true,
 });
 
-console.log('✅ [REQENC SHIELD] Successfully built production bundles:');
+console.log('✅ [REQENC EDGE] Successfully built production bundles:');
 console.log('   - dist/index.mjs (ESM)');
 console.log('   - dist/index.cjs (CommonJS)');
 console.log('   - dist/index.d.ts (Types)');
